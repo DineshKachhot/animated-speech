@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { View, StyleSheet, StatusBar, KeyboardAvoidingView, Platform } from 'react-native';
 import { Stack } from 'expo-router';
-import { useAudioPlayer } from 'expo-audio';
+import { useAudioPlayer, setAudioModeAsync } from 'expo-audio';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { SpeakingCharacter } from '@/components/SpeakingCharacter';
@@ -14,6 +14,15 @@ export default function Home() {
 
   const { state, error, speak, onPlaybackEnd } = useAzureSpeech();
   const player = useAudioPlayer(null);
+
+  useEffect(() => {
+    setAudioModeAsync({
+      allowsRecording: false,
+      playsInSilentMode: true,
+      shouldPlayInBackground: false,
+      interruptionMode: 'mixWithOthers',
+    }).catch((err) => console.error('Failed to set audio mode', err));
+  }, []);
 
   // Stable ref so scheduler callback can read latest player.currentTime
   const playerRef = useRef(player);

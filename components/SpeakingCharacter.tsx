@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import Rive, { type RiveRef } from 'rive-react-native';
+import Rive, { type RiveRef, Fit } from 'rive-react-native';
 
 const ARTBOARD = 'Coach model';
 const STATE_MACHINE = 'State Machine 1';
@@ -64,6 +64,7 @@ export function SpeakingCharacter({ visemeId, speaking, emotion = 0 }: Props) {
         autoplay
         style={styles.rive}
         onError={() => setLoadError(true)}
+        fit={Fit.Cover}
       />
     </View>
   );
