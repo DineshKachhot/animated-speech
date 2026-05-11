@@ -6,8 +6,6 @@ import {
   ActivityIndicator,
   Text,
   TouchableOpacity,
-  Platform,
-  KeyboardAvoidingView,
 } from 'react-native';
 import type { SpeechState } from '@/hooks/useAzureSpeech';
 
@@ -28,9 +26,7 @@ export function SpeechInput({ state, error, onSpeak }: Props) {
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.wrapper}>
+    <View style={styles.wrapper}>
       <View style={styles.container}>
         {error ? <Text style={styles.error}>{error}</Text> : null}
 
@@ -70,7 +66,7 @@ export function SpeechInput({ state, error, onSpeak }: Props) {
               : 'Press ▶ to animate'}
         </Text>
       </View>
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 

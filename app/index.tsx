@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, StatusBar, KeyboardAvoidingView, Platform } from 'react-native';
 import { Stack } from 'expo-router';
 import { useAudioPlayer } from 'expo-audio';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -60,13 +60,17 @@ export default function Home() {
       <StatusBar barStyle="dark-content" />
       <Stack.Screen options={{ headerShown: false }} />
 
-      <View style={styles.stage}>
-        <SpeakingCharacter visemeId={visemeId} speaking={speaking} />
-      </View>
+      <KeyboardAvoidingView
+        style={styles.keyboardAvoiding}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <View style={styles.stage}>
+          <SpeakingCharacter visemeId={visemeId} speaking={speaking} />
+        </View>
 
-      <View style={styles.inputArea}>
-        <SpeechInput state={state} error={error} onSpeak={handleSpeak} />
-      </View>
+        <View style={styles.inputArea}>
+          <SpeechInput state={state} error={error} onSpeak={handleSpeak} />
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -75,6 +79,9 @@ const styles = StyleSheet.create({
   safe: {
     flex: 1,
     backgroundColor: '#EBF8FF',
+  },
+  keyboardAvoiding: {
+    flex: 1,
   },
   stage: {
     flex: 1,
