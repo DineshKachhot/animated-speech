@@ -28,7 +28,7 @@ export function useVisemeScheduler(onViseme: (id: number) => void) {
           lastId = id;
           onViseme(id);
         }
-      }, 40);
+      }, 0);
     },
     [onViseme],
   );

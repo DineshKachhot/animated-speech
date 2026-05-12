@@ -36,7 +36,7 @@ export function SpeechInput({ state, error, onSpeak }: Props) {
             value={text}
             onChangeText={setText}
             placeholder="Type something to say..."
-            placeholderTextColor="#A0AEC0"
+            placeholderTextColor="#94A3B8"
             multiline={false}
             returnKeyType="send"
             onSubmitEditing={handleSpeak}
@@ -58,13 +58,13 @@ export function SpeechInput({ state, error, onSpeak }: Props) {
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.hint}>
+        {/* <Text style={styles.hint}>
           {state === 'synthesizing'
             ? 'Generating speech...'
             : state === 'playing'
               ? 'Speaking...'
               : 'Press ▶ to animate'}
-        </Text>
+        </Text> */}
       </View>
     </View>
   );
@@ -75,17 +75,12 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#1E293B',
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     paddingHorizontal: 20,
     paddingTop: 20,
-    paddingBottom: 36,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 12,
-    elevation: 12,
+    paddingBottom: 20,
     gap: 12,
   },
   row: {
@@ -96,31 +91,24 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 52,
-    backgroundColor: '#F7F8FA',
+    backgroundColor: '#334155',
     borderRadius: 16,
     paddingHorizontal: 16,
     fontSize: 16,
-    color: '#1A202C',
+    color: '#F8FAFC',
     borderWidth: 1.5,
-    borderColor: '#E2E8F0',
+    borderColor: '#475569',
   },
   button: {
     width: 52,
     height: 52,
     borderRadius: 16,
-    backgroundColor: '#58CC02',
+    backgroundColor: 'orange',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#58CC02',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.35,
-    shadowRadius: 8,
-    elevation: 6,
   },
   buttonDisabled: {
-    backgroundColor: '#A0AEC0',
-    shadowOpacity: 0,
-    elevation: 0,
+    backgroundColor: '#475569',
   },
   buttonText: {
     fontSize: 20,
@@ -128,14 +116,14 @@ const styles = StyleSheet.create({
   },
   hint: {
     fontSize: 13,
-    color: '#718096',
+    color: '#94A3B8',
     textAlign: 'center',
   },
   error: {
     fontSize: 13,
-    color: '#E53E3E',
+    color: '#FCA5A5',
     textAlign: 'center',
-    backgroundColor: '#FFF5F5',
+    backgroundColor: '#7F1D1D',
     padding: 10,
     borderRadius: 8,
   },

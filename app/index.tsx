@@ -66,7 +66,7 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
       <Stack.Screen options={{ headerShown: false }} />
 
       <KeyboardAvoidingView
@@ -87,7 +87,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#EBF8FF',
+    backgroundColor: '#191920',
   },
   keyboardAvoiding: {
     flex: 1,
