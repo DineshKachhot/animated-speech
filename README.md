@@ -4,9 +4,7 @@ A React Native & Expo application featuring a real-time lip-syncing character. T
 
 ## 🎥 Preview
 
-![Animated Speech Demo](./assets/Animated_speech-demo.mp4)
-
-If the video does not play automatically, [click here to view the demo video](./assets/Animated_speech-demo.mp4).
+![Animated Speech Demo](./assets/Animated_speech-demo.mov)
 
 ## 🚀 Features
 
